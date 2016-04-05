@@ -1,0 +1,40 @@
+#!/bin/bash
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+EMOJI_FILE="$DIR/emoji.tsv"
+
+for i in "$@"; do
+    case $i in
+        -l|--list)
+            LIST=true
+            shift
+            ;;
+        --text=*)
+            TEXT="${i#*=}"
+            shift
+            ;;
+        *)
+            ;;
+    esac
+done
+
+first_word() {
+    perl -ne 'print $1 . " " if /^(\S+)/'
+}
+
+filter() {
+    perl -ne "print if /$1/" "$2"
+}
+
+if [ -n "$TEXT" ]; then
+    for a in $TEXT; do
+        filter ":$a:" "$EMOJI_FILE" | first_word
+    done
+    echo
+elif [ -n "$LIST" ]; then
+    filter "$1" "$EMOJI_FILE"
+else
+    filter "$1" "$EMOJI_FILE" | first_word
+    echo
+fi
