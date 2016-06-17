@@ -2,8 +2,8 @@
 
 ### Install
 
-    git clone https://github.com/siadat/emojifind.git ~/scripts/emojifind
-    alias emojifind=~/scripts/emojifind/emojifind
+    git clone https://github.com/siadat/emojifind.git ~/emojifind
+    alias emojifind=~/emojifind/emojifind
 
 ### Usage
 
