@@ -46,3 +46,5 @@ Use `-l` to see aliases and tags
     $ emojifind -l bell
     🔔  :bell:     #sound,#notification  bell
     🔕  :no_bell:  #volume,#off          bell_with_cancellation
+
+Emoji names are based on [gemoji's database](https://github.com/github/gemoji/blob/master/db/emoji.json).
